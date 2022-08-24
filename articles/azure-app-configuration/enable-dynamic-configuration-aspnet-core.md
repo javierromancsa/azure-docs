@@ -4,7 +4,7 @@ titleSuffix: Azure App Configuration
 description: In this tutorial, you learn how to dynamically update the configuration data for ASP.NET Core apps
 services: azure-app-configuration
 documentationcenter: ''
-author: AlexandraKemperMS
+author: maud-lv
 editor: ''
 
 ms.assetid: 
@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 09/1/2020
-ms.author: alkemper
+ms.author: malev
 ms.custom: "devx-track-csharp, mvc"
 
 #Customer intent: I want to dynamically update my app to use the latest configuration data in App Configuration.
@@ -81,7 +81,8 @@ A *sentinel key* is a special key that you update after you complete the change 
                     });
                 })
             .UseStartup<Startup>());
-    ```   
+    ```
+
     #### [.NET Core 3.x](#tab/core3x)
 
     ```csharp

@@ -6,8 +6,9 @@ ms.author: weetok
 ms.service: data-factory
 ms.subservice: security
 ms.topic: quickstart
-ms.date: 05/08/2020
+ms.date: 08/05/2022
 ms.reviewer: mariozi
+ms.custom: mode-other
 ---
 # Encrypt Azure Data Factory with customer-managed keys
 

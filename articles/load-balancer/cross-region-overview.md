@@ -4,14 +4,13 @@ titleSuffix: Azure Load Balancer
 description: Overview of cross region load balancer tier for Azure Load Balancer.
 services: load-balancer
 documentationcenter: na
-author: asudbring
+author: mbender-ms
 ms.service: load-balancer
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
-ms.author: allensu
+ms.author: mbender
 ms.custom: references_regions
 
 ---
@@ -23,7 +22,7 @@ Azure Standard Load Balancer supports cross-region load balancing enabling geo-r
 * [Instant global failover](#regional-redundancy) to the next optimal regional deployment.
 * Load distribution across regions to the closest Azure region with [ultra-low latency](#ultra-low-latency).
 * Ability to [scale up/down](#ability-to-scale-updown-behind-a-single-endpoint) behind a single endpoint.
-* [Static IP](#static-ip)
+* Static anycast global IP address
 * [Client IP preservation](#client-ip-preservation)
 * [Build on existing load balancer](#build-cross-region-solution-on-existing-azure-load-balancer) solution with no learning curve
 
@@ -75,8 +74,8 @@ When you expose the global endpoint of a cross-region load balancer to customers
 
 <!---To learn about how to add or remove a regional deployment from the backend, read more [here](TODO: Insert CLI doc here).--->
 
-### Static IP
-Cross-region load balancer comes with a static public IP, which ensures the IP address remains the same. To learn more about static IP, read more [here](../virtual-network/public-ip-addresses.md#ip-address-assignment)
+### Static anycast global IP address
+Cross-region load balancer comes with a static public IP, which ensures the IP address remains the same. To learn more about static IP, read more [here](../virtual-network/ip-services/public-ip-addresses.md#ip-address-assignment)
 
 ### Client IP Preservation
 Cross-region load balancer is a Layer-4 pass-through network load balancer. This pass-through preserves the original IP of the packet.  The original IP is available to the code running on the virtual machine. This preservation allows you to apply logic that is specific to an IP address.
@@ -97,9 +96,12 @@ This region doesn't affect how the traffic will be routed. If a home region goes
 * Central US
 * North Europe
 * East Asia
+* US Gov Virginia
+* UK West
+* Uk South
 
 > [!NOTE]
-> You can only deploy your cross-region load balancer or Public IP in Global tier in one of the 7 regions above.
+> You can only deploy your cross-region load balancer or Public IP in Global tier in one of the regions above.
 
 A **participating region** is where the Global public IP of the load balancer is being advertised.
 
@@ -125,6 +127,11 @@ Cross-region load balancer routes the traffic to the appropriate regional load b
 * Australia Southeast 
 * Australia East 
 * Central India 
+* US DoD Central
+* US DoD East
+* US Gov Arizona
+* US Gov Texas
+* US Gov Virginia
 
 ## Limitations
 
@@ -138,7 +145,6 @@ Cross-region load balancer routes the traffic to the appropriate regional load b
 
 * A health probe can't be configured currently. A default health probe automatically collects availability information about the regional load balancer every 20 seconds. 
 
-* Integration with Azure Kubernetes Service (AKS) is currently unavailable. Loss of connectivity will occur when deploying a cross-region load balancer with the Standard load balancer with AKS cluster deployed in the backend.
 
 ## Pricing and SLA
 Cross-region load balancer, shares the [SLA](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/ ) of standard load balancer.

@@ -6,9 +6,9 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 09/09/2021
+ms.date: 06/29/2022
 ms.author: jianleishen
-ms.custom: has-adal-ref, synapse
+ms.custom: synapse
 ---
 
 # Troubleshoot Azure Data Factory and Azure Synapse Analytics connectors
@@ -24,13 +24,14 @@ You can refer to the troubleshooting pages for each connector to see problems sp
 - [Azure Blob Storage](connector-troubleshoot-azure-blob-storage.md)
 - [Azure Cosmos DB (including SQL API connector)](connector-troubleshoot-azure-cosmos-db.md)
 - [Azure Data Lake (Gen1 and Gen2)](connector-troubleshoot-azure-data-lake.md)
-- [Azure database for PostgreSQL](connector-troubleshoot-postgresql.md)
+- [Azure Database for PostgreSQL](connector-troubleshoot-postgresql.md)
 - [Azure Files storage](connector-troubleshoot-azure-files.md)
 - [Azure Synapse Analytics, Azure SQL Database, and SQL Server](connector-troubleshoot-synapse-sql.md)
 - [DB2](connector-troubleshoot-db2.md)
 - [Delimited text format](connector-troubleshoot-delimited-text.md)
 - [Dynamics 365, Dataverse (Common Data Service), and Dynamics CRM](connector-troubleshoot-dynamics-dataverse.md)
 - [FTP, SFTP and HTTP](connector-troubleshoot-ftp-sftp-http.md)
+- [Hive](connector-troubleshoot-hive.md)
 - [Oracle](connector-troubleshoot-oracle.md)
 - [ORC format](connector-troubleshoot-orc.md)
 - [Parquet format](connector-troubleshoot-parquet.md)
@@ -235,6 +236,16 @@ The errors below are general to the copy activity and could occur with any conne
 - **Cause**: Invalid download links or transient connectivity issues.
 
 - **Recommendation**: Retry if the message shows that it's a transient issue. If the problem persists, contact the support team.
+
+## General connector errors
+
+### Error code: UserErrorOdbcInvalidQueryString
+
+- **Message**: `The following ODBC Query is not valid: '%'.`
+ 
+- **Cause**: You provide a wrong or invalid query to fetch the data/schemas.
+
+- **Recommendation**: Verify your query is valid and can return data/schemas. Use [Script activity](transform-data-using-script.md) if you want to execute non-query scripts and your data store is supported. Alternatively, consider to use stored procedure that returns a dummy result to execute your non-query scripts.
 
 ## Next steps
 

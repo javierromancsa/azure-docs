@@ -3,15 +3,15 @@ title: Troubleshoot custom policies with Application Insights
 titleSuffix: Azure AD B2C
 description: How to set up Application Insights to trace the execution of your custom policies.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 09/20/2021
+ms.date: 08/04/2022
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -144,7 +144,7 @@ After you set up the Application Insights, and configure the custom policy, you 
 To get Application Insights ID and key:
 
 1. In Azure portal, open the Application Insights resource for your application.
-1. Select **Settings**, then select **API Access**.
+1. Select **Configure**, then select **API Access**.
 1. Copy the **Application ID**
 1. Select **Create API Key**
 1. Check the **Read telemetry** box.
@@ -173,7 +173,7 @@ After you save the settings the Application insights logs appear on the **Azure 
 
 ## Configure Application Insights in Production
 
-To improve your production environment performance and better user experience, it's important to configure your policy to ignore messages that are unimportant. Use the following configuration in production environments. 
+To improve your production environment performance and better user experience, it's important to configure your policy to ignore messages that are unimportant. Use the following configuration in production environments and no logs will be sent to your application insights.
 
 1. Set the `DeploymentMode` attribute of the [TrustFrameworkPolicy](trustframeworkpolicy.md) to `Production`. 
 

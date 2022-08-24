@@ -3,9 +3,9 @@ title: Use Azure Data Studio to manage your PostgreSQL instance
 description: Use Azure Data Studio to manage your PostgreSQL instance
 services: azure-arc
 ms.service: azure-arc
-ms.subservice: azure-arc-data
-author: TheJY
-ms.author: jeanyd
+ms.subservice: azure-arc-data-postgresql
+author: grrlgeek
+ms.author: jeschult
 ms.reviewer: mikeray
 ms.date: 07/30/2021
 ms.topic: how-to

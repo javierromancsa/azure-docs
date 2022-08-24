@@ -2,20 +2,22 @@
 title: Linter rule - no hardcoded environment URL
 description: Linter rule - no hardcoded environment URL
 ms.topic: conceptual
-ms.date: 10/14/2021
+ms.date: 11/18/2021
 ---
 
 # Linter rule - no hardcoded environment URL
 
 This rule finds any hard-coded URLs that vary by the cloud environment.
 
-## Returned code
+## Linter rule code
+
+Use the following value in the [Bicep configuration file](bicep-config-linter.md) to customize rule settings:
 
 `no-hardcoded-env-urls`
 
 ## Solution
 
-Instead of hard-coding URLs in your Bicep file, use the [environment function](../templates/template-functions-deployment.md#environment) to dynamically get these URLs during deployment. The environment function returns different URLs based on the cloud environment you're deploying to.
+Instead of hard-coding URLs in your Bicep file, use the [environment function](bicep-functions-deployment.md#environment) to dynamically get these URLs during deployment. The environment function returns different URLs based on the cloud environment you're deploying to.
 
 The following example fails this test because the URL is hardcoded.
 
@@ -99,12 +101,4 @@ You can customize it by adding a bicepconfig.json file and applying new settings
 
 ## Next steps
 
-* For more information about the linter, see [Use Bicep linter](./linter.md).
-* The current linter rules are:
-
-  * [no-hardcoded-env-urls](./linter-rule-no-hardcoded-environment-urls.md)
-  * [no-unused-params](./linter-rule-no-unused-parameters.md)
-  * [no-unused-vars](./linter-rule-no-unused-variables.md)
-  * [prefer-interpolation](./linter-rule-prefer-interpolation.md)
-  * [secure-parameter-default](./linter-rule-secure-parameter-default.md)
-  * [simplify-interpolation](./linter-rule-simplify-interpolation.md)
+For more information about the linter, see [Use Bicep linter](./linter.md).

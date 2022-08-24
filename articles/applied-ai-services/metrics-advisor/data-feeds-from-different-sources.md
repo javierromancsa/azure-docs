@@ -46,7 +46,6 @@ Use this article to find the settings and requirements for connecting different 
 |[MongoDB](#mongodb) | Basic |
 |[MySQL](#mysql) | Basic |
 |[PostgreSQL](#pgsql) | Basic|
-|[Local files (CSV)](#csv) | Basic|
 
 The following sections specify the parameters required for all authentication types within different data source scenarios. 
 
@@ -116,7 +115,7 @@ The following sections specify the parameters required for all authentication ty
 
 * **JSON format version**: Defines the data schema in the JSON files. Metrics Advisor supports the following versions. You can choose one to fill in the field:
   
-   * **v1** (default value)
+   * **v1** 
 
       Only the metrics *Name* and *Value* are accepted. For example:
     
@@ -181,7 +180,7 @@ The following sections specify the parameters required for all authentication ty
         Data Source=<URI Server>;Initial Catalog=<Database>
         ```
 
-    * **Managed identity**: Managed identity for Azure resources can authorize access to blob and queue data. Managed identity uses Azure AD credentials from applications running in Azure virtual machines, function apps, virtual machine scale sets, and other services. By using managed identity for Azure resources and Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud. Learn how to [authorize with a managed identity](../../storage/common/storage-auth-aad-msi.md#enable-managed-identities-on-a-vm). 
+    * **Managed identity**: Managed identity for Azure resources can authorize access to blob and queue data. Managed identity uses Azure AD credentials from applications running in Azure virtual machines, function apps, virtual machine scale sets, and other services. By using managed identity for Azure resources and Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud. Learn how to [authorize with a managed identity](../../storage/blobs/authorize-managed-identity.md#enable-managed-identities-on-a-vm). 
     
         You can create a managed identity in the Azure portal for your Azure Data Explorer (Kusto). Select **Permissions** > **Add**. The suggested role type is: **admin / viewer**.
         
@@ -195,13 +194,13 @@ The following sections specify the parameters required for all authentication ty
      
 * **Query**: To get and formulate data into multi-dimensional time series data, see [Kusto Query Language](/azure/data-explorer/kusto/query). You can use the `@IntervalStart` and `@IntervalEnd` variables in your query. They should be formatted as follows: `yyyy-MM-ddTHH:mm:ssZ`.
 
-    Sample query:
+  Sample query:
     
-    ``` Kusto
-   [TableName] | where [TimestampColumn] >= datetime(@IntervalStart) and [TimestampColumn] < datetime(@IntervalEnd);    
-   ```
+  ```kusto
+  [TableName] | where [TimestampColumn] >= datetime(@IntervalStart) and [TimestampColumn] < datetime(@IntervalEnd);    
+  ```
 
-    For more information, refer to the [tutorial on writing a valid query](tutorials/write-a-valid-query.md).
+  For more information, refer to the [tutorial on writing a valid query](tutorials/write-a-valid-query.md).
 
 ## <span id="adl">Azure Data Lake Storage Gen2</span>
 
@@ -410,7 +409,7 @@ Azure Monitor Logs has the following authentication types: basic, service princi
         ```
     
         > [!NOTE]
-        > The `MI Name` is the managed identity name in Metrics Advisor (for service principal, it should be replaced with the service principal name). For more information, see [Authorize with a managed identity](../../storage/common/storage-auth-aad-msi.md#enable-managed-identities-on-a-vm). 
+        > The `MI Name` is the managed identity name in Metrics Advisor (for service principal, it should be replaced with the service principal name). For more information, see [Authorize with a managed identity](../../storage/blobs/authorize-managed-identity.md#enable-managed-identities-on-a-vm). 
             
         Here's an example of a connection string: 
        
@@ -533,16 +532,6 @@ For more information, refer to the [tutorial on writing a valid query](tutorials
     ```
     For more information, refer to the [tutorial on writing a valid query](tutorials/write-a-valid-query.md).
     
-## <span id="csv">Local files (CSV)</span>
-
-> [!NOTE]
-> This feature is only used for quick system evaluation focusing on anomaly detection. It only accepts static data from a local CSV, and performs anomaly detection on single time series data. For analyzing multi-dimensional metrics, including real-time data ingestion, anomaly notification, root cause analysis, and cross-metric incident analysis, use other supported data sources.
-
-**Requirements on data in CSV:**
-- Have at least one column, which represents measurements to be analyzed. For a better and quicker user experience, try a CSV file that contains two columns: a timestamp column and a metric column. The timestamp format should be as follows: `2021-03-30T00:00:00Z`, and the `seconds` part is best to be `:00Z`. The time granularity between every record should be the same.
-- The timestamp column is optional. If there's no timestamp, Metrics Advisor will use timestamp starting from today (`00:00:00` Coordinated Universal Time). The service maps each measure in the row at a one-hour interval.
-- There is no re-ordering or gap-filling happening during data ingestion. Make sure that your data in the CSV file is ordered by the timestamp ordering **ascending (ASC)**.
- 
 ## Next steps
 
 * While you're waiting for your metric data to be ingested into the system, read about [how to manage data feed configurations](how-tos/manage-data-feeds.md).

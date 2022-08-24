@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.subservice: security 
 ms.date: 04/15/2020 
 ms.author: mesrivas
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ms.custom: subject-rbac-steps
 ---
 
@@ -18,14 +18,6 @@ This article teaches you how to grant permissions to the managed identity in Azu
 
 >[!NOTE]
 >This workspace managed identity will be referred to as managed identity through the rest of this document.
-
-## Grant managed identity permissions to the dedicated SQL pool
-
-The managed identity grants permissions to the dedicated SQL pools in the workspace. With permissions granted, you can orchestrate pipelines that perform dedicated SQL pool-related activities. When you create an Azure Synapse workspace using Azure portal, you can grant the managed identity CONTROL permissions on dedicated SQL pools.
-
-Select **Security** when you're creating your Azure Synapse workspace. Then select **Allow pipelines (running as workspace's system assigned identity) to access SQL pools.**.
-
-![CONTROL permission on dedicated SQL pools](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-16.png)
 
 ## Grant the managed identity permissions to ADLS Gen2 storage account
 
@@ -79,7 +71,7 @@ Select that same container or file system to grant the *Storage Blob Data Contri
     
     | Setting | Value |
     | --- | --- |
-    | Role | Storage Blob Contributor |
+    | Role | Storage Blob Data Contributor |
     | Assign access to | MANAGEDIDENTITY |
     | Members | managed identity name  |
 
@@ -90,7 +82,7 @@ Select that same container or file system to grant the *Storage Blob Data Contri
 
 1. Select **Save** to add the role assignment.
 
-#### Step 9: Verify that the Storage Blob Data Contributor role is assigned to the managed identity
+#### Step 4: Verify that the Storage Blob Data Contributor role is assigned to the managed identity
 
 Select **Access Control(IAM)** and then select **Role assignments**.
 
@@ -101,4 +93,4 @@ You should see your managed identity listed under the **Storage Blob Data Contri
 
 ## Next steps
 
-Learn more about [Workspace managed identity](./synapse-workspace-managed-identity.md)
+Learn more about [Workspace managed identity](../../data-factory/data-factory-service-identity.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics)

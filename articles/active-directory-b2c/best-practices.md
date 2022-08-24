@@ -4,7 +4,7 @@ titleSuffix: Azure AD B2C
 description: Recommendations and best practices to consider when working with Azure Active Directory B2C (Azure AD B2C).
 services: active-directory-b2c
 author: vigunase
-manager: celestedg
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
@@ -87,4 +87,4 @@ Stay up to date with the state of the service and find support options.
 |--|--|
 | [Service updates](https://azure.microsoft.com/updates/?product=active-directory-b2c) |  Stay up to date with Azure AD B2C product updates and announcements. |
 | [Microsoft Support](support-options.md) | File a support request for Azure AD B2C technical issues. Billing and subscription management support is provided at no cost. |
-| [Azure status](https://status.azure.com/status) | View the current health status of all Azure services. |
+| [Azure status](https://azure.status.microsoft/status) | View the current health status of all Azure services. |

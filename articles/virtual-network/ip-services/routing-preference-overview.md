@@ -6,7 +6,6 @@ documentationcenter: na
 author: asudbring
 ms.service: virtual-network
 # Customer intent: As an Azure customer, I want to learn more about routing choices for my internet egress traffic.
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -64,13 +63,24 @@ The price difference between both options is reflected in the internet egress da
 
 ## Limitations
 
+* Internet routing preference is only compatible with zone-redundant standard SKU of public IP address. Basic SKU of public IP address is not supported.
+* Internet routing preference currently supports only IPv4 public IP addresses. IPv6 public IP addresses are not supported.
+* Internet routing preference IPs are not supported in a public IP address prefix.
 
-* Routing preference is only compatible with zone-redundant standard SKU of public IP address. Basic SKU of public IP address is not supported.
-* Routing preference currently supports only IPv4 public IP addresses. IPv6 public IP addresses are not supported.
+### Regional Unavailability
+Internet routing preference is available in all regions except:
 
+* Australia Central
+* Austria East
+* Brazil Southeast
+* Germany Central
+* Germany NorthEast
+* Norway West
+* Sweden Central
+* West US 3
 
 ## Next steps
 
 * [Learn more about how optimize connectivity to your Microsoft Azure services over the internet - Video](https://www.youtube.com/watch?v=j6A_Mbpuh6s&list=PLLasX02E8BPA5V-waZPcelhg9l3IkeUQo&index=12) 
-* [Configure routing preference for a VM using the Azure PowerShell](../../virtual-network/configure-routing-preference-virtual-machine-powershell.md)
-* [Configure routing preference for a VM using the Azure CLI](../../virtual-network/configure-routing-preference-virtual-machine-cli.md)
+* [Configure routing preference for a VM using the Azure PowerShell](./configure-routing-preference-virtual-machine-powershell.md)
+* [Configure routing preference for a VM using the Azure CLI](./configure-routing-preference-virtual-machine-cli.md)

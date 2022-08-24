@@ -3,13 +3,13 @@ title: Immersive Reader Node.js client library quickstart
 titleSuffix: Azure Applied AI Services
 description: In this quickstart, you build a web app from scratch and add the Immersive Reader API functionality.
 services: cognitive-services
-author: nitinme
+author: rwallerms
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: immersive-reader
 ms.topic: include
 ms.date: 09/14/2020
-ms.author: nitinme
+ms.author: rwaller
 ms.custom: devx-track-js
 ---
 
@@ -54,6 +54,9 @@ npm install axios qs
 
 Create a new file called _.env_ in the root of your project. Paste the following code into it, supplying the values given when you created your Immersive Reader resource.
 Do not include quotation marks or the "{" and "}" characters.
+
+> [!IMPORTANT]
+> Remember to never post secrets publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md).
 
 ```text
 TENANT_ID={YOUR_TENANT_ID}
@@ -141,7 +144,7 @@ html
       // A polyfill for Promise is needed for IE11 support.
       script(src='https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js')
 
-      script(src='https://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-sdk.1.1.0.js')
+      script(src='https://ircdname.azureedge.net/immersivereadersdk/immersive-reader-sdk.1.2.0.js')
       script(src='https://code.jquery.com/jquery-3.3.1.min.js')
 
       style(type="text/css").

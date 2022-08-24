@@ -15,7 +15,7 @@ ms.author: jeedes
 # Tutorial: Azure Active Directory integration with SmarterU
 
 > [!NOTE]
-> The process for integrating SmarterU with Azure Active Directory is also documented and maintained in the [SmarterU help system](https://help.smarteru.com/ID2053086).
+> The process for integrating SmarterU with Azure Active Directory is also documented and maintained in the [SmarterU help system](https://support.smarteru.com/docs/sso-azure-active-directory).
 
 In this tutorial, you'll learn how to integrate SmarterU with Azure Active Directory (Azure AD). When you integrate SmarterU with Azure AD, you can:
 
@@ -171,4 +171,4 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 ## Next steps
 
-Once you configure SmarterU you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Once you configure SmarterU you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).
